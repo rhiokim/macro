@@ -5,13 +5,8 @@
 </template>
 
 <script>
-import robot from 'robotjs'
-
 export default {
-  name: 'robotjs-with-electron-vue',
-  mounted () {
-    console.log(robot)
-  }
+  name: 'robotjs-with-electron-vue'
 }
 </script>
 
