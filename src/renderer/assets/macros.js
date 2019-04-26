@@ -24,7 +24,7 @@ module.exports = {
         shift: false
       },
       repeat: {
-        period: 900, // ms
+        period: 350, // ms
         times: 0
       },
       flow: {}

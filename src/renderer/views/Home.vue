@@ -52,6 +52,17 @@ export default {
   },
   mounted () {
     console.log(db)
+
+    this.$electron.ipcRenderer.on('keypress', (event, message) => {
+      switch (message) {
+        case 'start':
+          this.startMacro(this.selectedMacro)
+          break
+        case 'end':
+          this.stopMacro()
+          break
+      }
+    })
   },
   methods: {
     ...mapActions(['startMacro', 'stopMacro']),

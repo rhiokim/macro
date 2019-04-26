@@ -34,7 +34,7 @@ function createWindow () {
   /**
    * Initial global shortcut
    */
-  require('./shortcuts')
+  require('./shortcuts')(mainWindow)
 }
 
 app.on('ready', createWindow)
