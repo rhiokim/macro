@@ -7,16 +7,16 @@ function interval (idx, key, period) {
     robot.keyTap(key)
     interval(idx, key, period)
   }, period)
-
-  robot.keyTap(key)
 }
 
 const startMacro = (context, { keys, mouse }) => {
   context.commit('START_MACRO')
 
+  console.log(keys, mouse)
   keys.forEach(({ accelerator, repeat }, idx) => {
     // keyTap(accelerator)
     interval(idx, accelerator, repeat.period)
+    robot.keyTap(accelerator)
   })
 }
 
