@@ -28,6 +28,7 @@
     </form>
     <button @click="onStart">start</button>
     <button @click="onStop">stop</button>
+    <button @click="onToggleAlwaysOnTop">Toggle alwaysOnTop</button>
   </div>
 </template>
 
@@ -59,6 +60,12 @@ export default {
     },
     onStop () {
       this.stopMacro()
+    },
+    onToggleAlwaysOnTop () {
+      const win = this.$electron.remote.getCurrentWindow()
+      win.setAlwaysOnTop(!win.isAlwaysOnTop())
+      // window.electron = this.$electron
+      // console.log(this.$electron)
     }
   },
   watch: {
