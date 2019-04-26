@@ -10,14 +10,17 @@ function interval (idx, key, period) {
 }
 
 const startMacro = (context, { keys, mouse }) => {
-  context.commit('START_MACRO')
+  if (!context.state.working) {
+    keys.forEach(({ accelerator, repeat }, idx) => {
+      // keyTap(accelerator)
+      interval(idx, accelerator, repeat.period)
+      robot.keyTap(accelerator)
+    })
+  } else {
+    console.log('Already Working')
+  }
 
-  console.log(keys, mouse)
-  keys.forEach(({ accelerator, repeat }, idx) => {
-    // keyTap(accelerator)
-    interval(idx, accelerator, repeat.period)
-    robot.keyTap(accelerator)
-  })
+  context.commit('START_MACRO')
 }
 
 const stopMacro = (context, payload) => {
