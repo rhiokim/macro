@@ -11,6 +11,9 @@ npm install
 # serve with hot reload at localhost:9080
 npm run dev
 
+# rebuild native modules
+npm run rebuild
+
 # build electron application for production
 npm run build
 
